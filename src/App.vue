@@ -15,33 +15,44 @@ export default {
         .getContext("2d");
 
       var data = {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Budget"],
         datasets: [
           {
-            label: "% change in support",
-            data: [12, -19, -3, 5, 2, 3],
-            backgroundColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)"
-            ],
-            borderWidth: 0
+            label: "Low",
+            data: [67.8],
+            backgroundColor: "#D6E9C6" // green
+          },
+          {
+            label: "High",
+            data: [11.4],
+            backgroundColor: "#EBCCD1" // red
           }
         ]
       };
       var options = {
-        cornerRadius: 20,
+        cornerRadius: 40,
         scales: {
+          xAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: false,
+                drawBorder: false
+              }
+            }
+          ],
           yAxes: [
             {
-              ticks: {
-                beginAtZero: true
+              stacked: true,
+              gridLines: {
+                display: false,
+                drawBorder: false
               }
             }
           ]
+        },
+        legend: {
+          display: true
         }
       };
       var horizontalBarChart = new Chart(ctx, {
@@ -53,8 +64,7 @@ export default {
   },
   name: "app",
   data() {
-    return {
-    };
+    return {};
   },
 
   mounted() {
